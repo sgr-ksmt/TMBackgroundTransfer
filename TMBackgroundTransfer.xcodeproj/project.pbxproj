@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		127E18531C082A7900421C21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18521C082A7900421C21 /* main.m */; };
 		127E18561C082A7900421C21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18551C082A7900421C21 /* AppDelegate.m */; };
-		127E18591C082A7900421C21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18581C082A7900421C21 /* ViewController.m */; };
-		127E185C1C082A7900421C21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E185A1C082A7900421C21 /* Main.storyboard */; };
 		127E185E1C082A7900421C21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E185D1C082A7900421C21 /* Assets.xcassets */; };
 		127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E185F1C082A7900421C21 /* LaunchScreen.storyboard */; };
 		127E186C1C082A7900421C21 /* TMBackgroundTransferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */; };
+		127E18781C082BB300421C21 /* TMBackgroundTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18771C082BB300421C21 /* TMBackgroundTransfer.m */; };
+		127E187A1C08360D00421C21 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 127E18791C08360D00421C21 /* Lenna.png */; };
+		127E187D1C08364C00421C21 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E187C1C08364C00421C21 /* NSData+MD5.m */; };
+		127E18821C08483F00421C21 /* NSIndexSet+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E187F1C08483F00421C21 /* NSIndexSet+Convenience.m */; };
+		127E18831C08483F00421C21 /* UICollectionView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18811C08483F00421C21 /* UICollectionView+Convenience.m */; };
+		127E18881C08484D00421C21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18851C08484D00421C21 /* ViewController.m */; };
+		127E18891C08484D00421C21 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18871C08484D00421C21 /* GridCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,15 +36,25 @@
 		127E18521C082A7900421C21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		127E18541C082A7900421C21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		127E18551C082A7900421C21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		127E18571C082A7900421C21 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		127E18581C082A7900421C21 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		127E185B1C082A7900421C21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		127E185D1C082A7900421C21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		127E18601C082A7900421C21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		127E18621C082A7900421C21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		127E18671C082A7900421C21 /* TMBackgroundTransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMBackgroundTransferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMBackgroundTransferTests.m; sourceTree = "<group>"; };
 		127E186D1C082A7900421C21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127E18761C082BB300421C21 /* TMBackgroundTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBackgroundTransfer.h; sourceTree = "<group>"; };
+		127E18771C082BB300421C21 /* TMBackgroundTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBackgroundTransfer.m; sourceTree = "<group>"; };
+		127E18791C08360D00421C21 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
+		127E187B1C08364C00421C21 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		127E187C1C08364C00421C21 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		127E187E1C08483F00421C21 /* NSIndexSet+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Convenience.h"; sourceTree = "<group>"; };
+		127E187F1C08483F00421C21 /* NSIndexSet+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Convenience.m"; sourceTree = "<group>"; };
+		127E18801C08483F00421C21 /* UICollectionView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Convenience.h"; sourceTree = "<group>"; };
+		127E18811C08483F00421C21 /* UICollectionView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Convenience.m"; sourceTree = "<group>"; };
+		127E18841C08484D00421C21 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		127E18851C08484D00421C21 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		127E18861C08484D00421C21 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		127E18871C08484D00421C21 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +96,21 @@
 		127E18501C082A7900421C21 /* TMBackgroundTransfer */ = {
 			isa = PBXGroup;
 			children = (
+				127E18791C08360D00421C21 /* Lenna.png */,
 				127E18541C082A7900421C21 /* AppDelegate.h */,
 				127E18551C082A7900421C21 /* AppDelegate.m */,
-				127E18571C082A7900421C21 /* ViewController.h */,
-				127E18581C082A7900421C21 /* ViewController.m */,
-				127E185A1C082A7900421C21 /* Main.storyboard */,
+				127E18841C08484D00421C21 /* ViewController.h */,
+				127E18851C08484D00421C21 /* ViewController.m */,
+				127E18861C08484D00421C21 /* GridCell.h */,
+				127E18871C08484D00421C21 /* GridCell.m */,
+				127E187B1C08364C00421C21 /* NSData+MD5.h */,
+				127E187C1C08364C00421C21 /* NSData+MD5.m */,
+				127E18761C082BB300421C21 /* TMBackgroundTransfer.h */,
+				127E18771C082BB300421C21 /* TMBackgroundTransfer.m */,
+				127E187E1C08483F00421C21 /* NSIndexSet+Convenience.h */,
+				127E187F1C08483F00421C21 /* NSIndexSet+Convenience.m */,
+				127E18801C08483F00421C21 /* UICollectionView+Convenience.h */,
+				127E18811C08483F00421C21 /* UICollectionView+Convenience.m */,
 				127E185D1C082A7900421C21 /* Assets.xcassets */,
 				127E185F1C082A7900421C21 /* LaunchScreen.storyboard */,
 				127E18621C082A7900421C21 /* Info.plist */,
@@ -191,9 +216,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127E187A1C08360D00421C21 /* Lenna.png in Resources */,
 				127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */,
 				127E185E1C082A7900421C21 /* Assets.xcassets in Resources */,
-				127E185C1C082A7900421C21 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,9 +236,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127E18591C082A7900421C21 /* ViewController.m in Sources */,
+				127E18881C08484D00421C21 /* ViewController.m in Sources */,
 				127E18561C082A7900421C21 /* AppDelegate.m in Sources */,
+				127E18831C08483F00421C21 /* UICollectionView+Convenience.m in Sources */,
+				127E18891C08484D00421C21 /* GridCell.m in Sources */,
 				127E18531C082A7900421C21 /* main.m in Sources */,
+				127E18781C082BB300421C21 /* TMBackgroundTransfer.m in Sources */,
+				127E18821C08483F00421C21 /* NSIndexSet+Convenience.m in Sources */,
+				127E187D1C08364C00421C21 /* NSData+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +266,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		127E185A1C082A7900421C21 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				127E185B1C082A7900421C21 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		127E185F1C082A7900421C21 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -400,6 +422,7 @@
 				127E18721C082A7900421C21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		127E18731C082A7900421C21 /* Build configuration list for PBXNativeTarget "TMBackgroundTransferTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +431,7 @@
 				127E18751C082A7900421C21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
