@@ -14,15 +14,29 @@
 @property (nonatomic) NSDictionary *headers;
 
 @property (nonatomic) BOOL allowsCellularAccess; // default NO;
-@property (nonatomic) NSString *sessionConfigurationIdentifier;
+@property (nonatomic, readonly) NSString *sessionConfigurationIdentifier;
 @property (nonatomic, readonly) NSURLSession *session;
 @property (nonatomic, readonly) NSProgress *progress;
 @property (nonatomic, weak) id <TMBackgroundTransferDelegate> delegate;
 
 + (TMBackgroundTransfer *)sharedTransfer;
 
+/**
+ SessionのID
+ Override method
+ */
 - (NSString *)sessionConfigurationIdentifier;
+
+/**
+ Requestのクエリキー
+ Override method
+ */
 - (NSString *)transferIdentifierKey;
+
+/**
+ Documents directoryに作られるtmp directoryの名前
+ Override method
+ */
 - (NSString *)backgroundTmpDirectoryName;
 
 /**

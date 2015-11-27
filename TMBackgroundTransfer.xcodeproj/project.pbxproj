@@ -13,7 +13,6 @@
 		127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E185F1C082A7900421C21 /* LaunchScreen.storyboard */; };
 		127E186C1C082A7900421C21 /* TMBackgroundTransferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */; };
 		127E18781C082BB300421C21 /* TMBackgroundTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18771C082BB300421C21 /* TMBackgroundTransfer.m */; };
-		127E187A1C08360D00421C21 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 127E18791C08360D00421C21 /* Lenna.png */; };
 		127E187D1C08364C00421C21 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E187C1C08364C00421C21 /* NSData+MD5.m */; };
 		127E18821C08483F00421C21 /* NSIndexSet+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E187F1C08483F00421C21 /* NSIndexSet+Convenience.m */; };
 		127E18831C08483F00421C21 /* UICollectionView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18811C08483F00421C21 /* UICollectionView+Convenience.m */; };
@@ -44,7 +43,6 @@
 		127E186D1C082A7900421C21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		127E18761C082BB300421C21 /* TMBackgroundTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMBackgroundTransfer.h; sourceTree = "<group>"; };
 		127E18771C082BB300421C21 /* TMBackgroundTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMBackgroundTransfer.m; sourceTree = "<group>"; };
-		127E18791C08360D00421C21 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
 		127E187B1C08364C00421C21 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		127E187C1C08364C00421C21 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		127E187E1C08483F00421C21 /* NSIndexSet+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Convenience.h"; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 		127E18501C082A7900421C21 /* TMBackgroundTransfer */ = {
 			isa = PBXGroup;
 			children = (
-				127E18791C08360D00421C21 /* Lenna.png */,
 				127E18541C082A7900421C21 /* AppDelegate.h */,
 				127E18551C082A7900421C21 /* AppDelegate.m */,
 				127E18841C08484D00421C21 /* ViewController.h */,
@@ -216,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127E187A1C08360D00421C21 /* Lenna.png in Resources */,
 				127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */,
 				127E185E1C082A7900421C21 /* Assets.xcassets in Resources */,
 			);
