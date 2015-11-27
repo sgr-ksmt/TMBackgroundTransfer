@@ -149,8 +149,14 @@ static NSString  *_sessionConfigurationIdentifier;
     totalBytesSent:(int64_t)totalBytesSent
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-    float progress = (float)totalBytesSent / totalBytesExpectedToSend;
-    NSLog(@"%f", progress);
+    //float progress = (float)totalBytesSent / totalBytesExpectedToSend;
+
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:)]) {
+            [self.delegate backgroundTransfer:self session:session task:task didSendBodyData:bytesSent totalBytesSent:totalBytesExpectedToSend totalBytesExpectedToSend:totalBytesExpectedToSend];
+        }
+    }
+    
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
@@ -158,7 +164,11 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
     if ([session.configuration.identifier isEqualToString:[self sessionConfigurationIdentifier]]) {
         
         if (error) {
-            // retry or cancel
+            if (self.delegate) {
+                if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
+                    [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
+                }
+            }
             return;
         }
         
@@ -168,6 +178,11 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
         NSLog(@"%@" ,response.allHeaderFields);
         
         [self removeFileAtTask:task];
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
+                [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
+            }
+        }
     }
 }
 

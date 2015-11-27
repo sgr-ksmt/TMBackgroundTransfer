@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TMBackgroundTransferDelegate;
 @interface TMBackgroundTransfer : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
 @property (nonatomic) NSDictionary *headers;
@@ -16,6 +17,7 @@
 @property (nonatomic) NSString *sessionConfigurationIdentifier;
 @property (nonatomic, readonly) NSURLSession *session;
 @property (nonatomic, readonly) NSProgress *progress;
+@property (nonatomic, weak) id <TMBackgroundTransferDelegate> delegate;
 
 + (TMBackgroundTransfer *)sharedTransfer;
 
@@ -32,5 +34,21 @@
  */
 - (NSURLSessionUploadTask *)uploadTaskWithURL:(NSURL *)url data:(NSData *)data hash:(NSString *)hash error:(NSError *__autoreleasing *)error;
 
+@end
+
+
+@protocol TMBackgroundTransferDelegate <NSObject>
+
+- (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer
+                   session:(NSURLSession *)session
+                      task:(NSURLSessionTask *)task
+           didSendBodyData:(int64_t)bytesSent
+            totalBytesSent:(int64_t)totalBytesSent
+  totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+
+- (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer
+                   session:(NSURLSession *)session
+                      task:(NSURLSessionTask *)task
+      didCompleteWithError:(NSError *)error;
 
 @end
