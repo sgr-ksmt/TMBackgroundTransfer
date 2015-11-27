@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		127E18531C082A7900421C21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18521C082A7900421C21 /* main.m */; };
+		127E18561C082A7900421C21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18551C082A7900421C21 /* AppDelegate.m */; };
+		127E18591C082A7900421C21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E18581C082A7900421C21 /* ViewController.m */; };
+		127E185C1C082A7900421C21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E185A1C082A7900421C21 /* Main.storyboard */; };
+		127E185E1C082A7900421C21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E185D1C082A7900421C21 /* Assets.xcassets */; };
+		127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127E185F1C082A7900421C21 /* LaunchScreen.storyboard */; };
+		127E186C1C082A7900421C21 /* TMBackgroundTransferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		127E18681C082A7900421C21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 127E18461C082A7900421C21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 127E184D1C082A7900421C21;
+			remoteInfo = TMBackgroundTransfer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		127E184E1C082A7900421C21 /* TMBackgroundTransfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMBackgroundTransfer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		127E18521C082A7900421C21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		127E18541C082A7900421C21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		127E18551C082A7900421C21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		127E18571C082A7900421C21 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		127E18581C082A7900421C21 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		127E185B1C082A7900421C21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		127E185D1C082A7900421C21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		127E18601C082A7900421C21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		127E18621C082A7900421C21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127E18671C082A7900421C21 /* TMBackgroundTransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMBackgroundTransferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMBackgroundTransferTests.m; sourceTree = "<group>"; };
+		127E186D1C082A7900421C21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		127E184B1C082A7900421C21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		127E18641C082A7900421C21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		127E18451C082A7900421C21 = {
+			isa = PBXGroup;
+			children = (
+				127E18501C082A7900421C21 /* TMBackgroundTransfer */,
+				127E186A1C082A7900421C21 /* TMBackgroundTransferTests */,
+				127E184F1C082A7900421C21 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		127E184F1C082A7900421C21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				127E184E1C082A7900421C21 /* TMBackgroundTransfer.app */,
+				127E18671C082A7900421C21 /* TMBackgroundTransferTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		127E18501C082A7900421C21 /* TMBackgroundTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				127E18541C082A7900421C21 /* AppDelegate.h */,
+				127E18551C082A7900421C21 /* AppDelegate.m */,
+				127E18571C082A7900421C21 /* ViewController.h */,
+				127E18581C082A7900421C21 /* ViewController.m */,
+				127E185A1C082A7900421C21 /* Main.storyboard */,
+				127E185D1C082A7900421C21 /* Assets.xcassets */,
+				127E185F1C082A7900421C21 /* LaunchScreen.storyboard */,
+				127E18621C082A7900421C21 /* Info.plist */,
+				127E18511C082A7900421C21 /* Supporting Files */,
+			);
+			path = TMBackgroundTransfer;
+			sourceTree = "<group>";
+		};
+		127E18511C082A7900421C21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				127E18521C082A7900421C21 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		127E186A1C082A7900421C21 /* TMBackgroundTransferTests */ = {
+			isa = PBXGroup;
+			children = (
+				127E186B1C082A7900421C21 /* TMBackgroundTransferTests.m */,
+				127E186D1C082A7900421C21 /* Info.plist */,
+			);
+			path = TMBackgroundTransferTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		127E184D1C082A7900421C21 /* TMBackgroundTransfer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 127E18701C082A7900421C21 /* Build configuration list for PBXNativeTarget "TMBackgroundTransfer" */;
+			buildPhases = (
+				127E184A1C082A7900421C21 /* Sources */,
+				127E184B1C082A7900421C21 /* Frameworks */,
+				127E184C1C082A7900421C21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TMBackgroundTransfer;
+			productName = TMBackgroundTransfer;
+			productReference = 127E184E1C082A7900421C21 /* TMBackgroundTransfer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		127E18661C082A7900421C21 /* TMBackgroundTransferTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 127E18731C082A7900421C21 /* Build configuration list for PBXNativeTarget "TMBackgroundTransferTests" */;
+			buildPhases = (
+				127E18631C082A7900421C21 /* Sources */,
+				127E18641C082A7900421C21 /* Frameworks */,
+				127E18651C082A7900421C21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				127E18691C082A7900421C21 /* PBXTargetDependency */,
+			);
+			name = TMBackgroundTransferTests;
+			productName = TMBackgroundTransferTests;
+			productReference = 127E18671C082A7900421C21 /* TMBackgroundTransferTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		127E18461C082A7900421C21 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Timers inc.";
+				TargetAttributes = {
+					127E184D1C082A7900421C21 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					127E18661C082A7900421C21 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 127E184D1C082A7900421C21;
+					};
+				};
+			};
+			buildConfigurationList = 127E18491C082A7900421C21 /* Build configuration list for PBXProject "TMBackgroundTransfer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 127E18451C082A7900421C21;
+			productRefGroup = 127E184F1C082A7900421C21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				127E184D1C082A7900421C21 /* TMBackgroundTransfer */,
+				127E18661C082A7900421C21 /* TMBackgroundTransferTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		127E184C1C082A7900421C21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				127E18611C082A7900421C21 /* LaunchScreen.storyboard in Resources */,
+				127E185E1C082A7900421C21 /* Assets.xcassets in Resources */,
+				127E185C1C082A7900421C21 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		127E18651C082A7900421C21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		127E184A1C082A7900421C21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				127E18591C082A7900421C21 /* ViewController.m in Sources */,
+				127E18561C082A7900421C21 /* AppDelegate.m in Sources */,
+				127E18531C082A7900421C21 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		127E18631C082A7900421C21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				127E186C1C082A7900421C21 /* TMBackgroundTransferTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		127E18691C082A7900421C21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 127E184D1C082A7900421C21 /* TMBackgroundTransfer */;
+			targetProxy = 127E18681C082A7900421C21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		127E185A1C082A7900421C21 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				127E185B1C082A7900421C21 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		127E185F1C082A7900421C21 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				127E18601C082A7900421C21 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		127E186E1C082A7900421C21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		127E186F1C082A7900421C21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		127E18711C082A7900421C21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TMBackgroundTransfer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timers-inc.TMBackgroundTransfer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		127E18721C082A7900421C21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TMBackgroundTransfer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timers-inc.TMBackgroundTransfer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		127E18741C082A7900421C21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TMBackgroundTransferTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timers-inc.TMBackgroundTransferTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMBackgroundTransfer.app/TMBackgroundTransfer";
+			};
+			name = Debug;
+		};
+		127E18751C082A7900421C21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TMBackgroundTransferTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timers-inc.TMBackgroundTransferTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TMBackgroundTransfer.app/TMBackgroundTransfer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		127E18491C082A7900421C21 /* Build configuration list for PBXProject "TMBackgroundTransfer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				127E186E1C082A7900421C21 /* Debug */,
+				127E186F1C082A7900421C21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		127E18701C082A7900421C21 /* Build configuration list for PBXNativeTarget "TMBackgroundTransfer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				127E18711C082A7900421C21 /* Debug */,
+				127E18721C082A7900421C21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		127E18731C082A7900421C21 /* Build configuration list for PBXNativeTarget "TMBackgroundTransferTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				127E18741C082A7900421C21 /* Debug */,
+				127E18751C082A7900421C21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 127E18461C082A7900421C21 /* Project object */;
+}
