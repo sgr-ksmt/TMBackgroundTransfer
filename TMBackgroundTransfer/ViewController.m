@@ -325,10 +325,7 @@ static CGSize AssetGridThumbnailSize;
             NSError *error = nil;
             [[TMBackgroundTransfer sharedTransfer] uploadTaskWithURL:url data:imageData hash:hash error:&error];
             
-         }];
-//        [asset requestContentEditingInputWithOptions:nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
-//            [[STPBackgroundTransfer sharedTransfer] uploadURL:contentEditingInput.fullSizeImageURL];
-//        }];
+        }];
     }];
 }
 
