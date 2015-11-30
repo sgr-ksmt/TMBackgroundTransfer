@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TMBackgroundTransfer"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "バックグランドでデータを転送するためのクラス"
   s.homepage     = "https://github.com/timers-inc/TMBackgroundTransfer"
   #s.screenshots	 = ""
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.ios.deployment_target = "7.0"
 
-  s.source       = { :git => "https://github.com/timers-inc/TMBackgroundTransfer.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/timers-inc/TMBackgroundTransfer.git", :tag => "0.2.0" }
   s.source_files  = ["TMBackgroundTransfer/TMBackgroundTransfer.{h,m}"]
 
 end
