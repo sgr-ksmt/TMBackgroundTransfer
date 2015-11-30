@@ -9,11 +9,20 @@
 #import "TMBackgroundTransfer.h"
 
 @implementation NSURL (Query)
+
+- (NSURL *)URLByAppendingQueryString:(NSString *)queryString {
+    if (![queryString length]) {
+        return self;
+    }
+    NSString *URLString = [[NSString alloc] initWithFormat:@"%@%@%@", [self absoluteString], [self query] ? @"&" : @"?", queryString];
+    NSURL *theURL = [NSURL URLWithString:URLString];
+    return theURL;
+}
+
 - (NSDictionary *)parseQuery
 {
     NSString *query = self.query;
     NSArray *params = [query componentsSeparatedByString:@"&"];
-    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     for (NSString *param in params) {
         NSArray *elements = [param componentsSeparatedByString:@"="];
@@ -23,11 +32,10 @@
     }
     return dict;
 }
+
 @end
 
 @interface TMBackgroundTransfer ()
-
-@property (nonatomic) NSMutableDictionary *taskProgresses;
 
 @end
 
@@ -51,7 +59,6 @@ static NSString  *_sessionConfigurationIdentifier;
     self = [super init];
     if (self) {
         _progress = [NSProgress progressWithTotalUnitCount:100];
-        _taskProgresses = [NSMutableDictionary dictionary];
         _allowsCellularAccess = NO;
         _sessionConfigurationIdentifier = [self sessionConfigurationIdentifier];
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionConfigurationIdentifier];
@@ -96,14 +103,24 @@ static NSString  *_sessionConfigurationIdentifier;
     NSURL *removeURL = [tmpDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@", hash]];
     
     NSError *error = nil;
-    if (![fileManager removeItemAtURL:removeURL error:&error]) {
-        NSLog(@"[remove uploaded file] %@", error);
+    
+    if ([fileManager fileExistsAtPath:[removeURL path]]) {
+        if (![fileManager removeItemAtURL:removeURL error:&error]) {
+            if (error) {
+                NSLog(@"[remove uploaded file] %@", error);
+            }
+        }
     }
 }
 
 #pragma mark - 
 
 - (NSURLSessionUploadTask *)uploadTaskWithURL:(NSURL *)url data:(NSData *)data hash:(NSString *)hash error:(NSError *__autoreleasing *)error
+{
+    return [self uploadTaskWithURL:url data:data hash:hash params:nil error:error];
+}
+
+- (NSURLSessionUploadTask *)uploadTaskWithURL:(NSURL *)url data:(NSData *)data hash:(NSString *)hash params:(NSDictionary <NSString *, NSString *>*)params error:(NSError *__autoreleasing *)error
 {
     NSString *tmpDirectoryName = [self backgroundTmpDirectoryName];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -129,18 +146,41 @@ static NSString  *_sessionConfigurationIdentifier;
             return nil;
         }
     }
-
     NSString *transferKey = [self transferIdentifierKey];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@=%@", [url absoluteString], transferKey, hash]]];
+   
+    __block NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@=%@", [url absoluteString], transferKey, hash] relativeToURL:url];
+    if (params) {
+        [params enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+            NSString *param = [NSString stringWithFormat:@"%@=%@", key, obj];
+            requestURL = [requestURL URLByAppendingQueryString:param];
+        }];
+    }
+ 
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestURL];
     request.HTTPMethod = @"POST";
     request.allowsCellularAccess = self.allowsCellularAccess;
+    
+    if (self.headers) {
+        [self.headers enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+            [request setValue:obj forHTTPHeaderField:key];
+        }];
+    }
     
     NSURLSessionUploadTask *task = [self.session uploadTaskWithRequest:request fromFile:saveURL];
     [task resume];
 
-    
     return task;
 }
+
+- (BOOL)cancelWithTask:(NSURLSessionUploadTask *)task error:(NSError *__autoreleasing *)error
+{
+    if (!task) {
+        return NO;
+    }
+    return YES;
+}
+
+
 
 #pragma mark - NSURLSessionTaskDelegate
 
@@ -162,8 +202,26 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
     if ([session.configuration.identifier isEqualToString:[self sessionConfigurationIdentifier]]) {
-        
         if (error) {
+            if ([[error domain] isEqualToString:NSURLErrorDomain]) {
+                switch ([error code]) {
+                    case NSURLErrorCancelled: {
+                        
+                        NSDictionary *userInfo = error.userInfo;
+                        NSURL *url = [userInfo objectForKey:NSURLErrorFailingURLErrorKey];
+                        NSDictionary *dict = [url parseQuery];
+                        NSString *transferKey = [self transferIdentifierKey];
+                        NSString *hash = [dict objectForKey:transferKey];
+                        [self removeFileAtHash:hash];
+                        
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+            
             if (self.delegate) {
                 if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
                     [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
@@ -173,10 +231,6 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
         }
         
         // complete
-        
-        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-        NSLog(@"%@" ,response.allHeaderFields);
-        
         [self removeFileAtTask:task];
         if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {

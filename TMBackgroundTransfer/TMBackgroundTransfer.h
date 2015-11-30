@@ -11,7 +11,7 @@
 @protocol TMBackgroundTransferDelegate;
 @interface TMBackgroundTransfer : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
-@property (nonatomic) NSDictionary *headers;
+@property (nonatomic) NSDictionary <NSString *, NSString *>*headers;
 
 @property (nonatomic) BOOL allowsCellularAccess; // default NO;
 @property (nonatomic, readonly) NSString *sessionConfigurationIdentifier;
@@ -47,6 +47,19 @@
  @param error エラー
  */
 - (NSURLSessionUploadTask *)uploadTaskWithURL:(NSURL *)url data:(NSData *)data hash:(NSString *)hash error:(NSError *__autoreleasing *)error;
+
+/**
+ データをバックグランドで転送
+ @return アップロードタスク
+ @param URL 転送先のURL
+ @param data 転送するデータ
+ @param params 転送先URLに付随するQuery
+ @param error エラー
+ */
+- (NSURLSessionUploadTask *)uploadTaskWithURL:(NSURL *)url data:(NSData *)data hash:(NSString *)hash params:(NSDictionary <NSString *, NSString *>*)params error:(NSError *__autoreleasing *)error;
+
+
+- (BOOL)cancelWithTask:(NSURLSessionUploadTask *)task error:(NSError *__autoreleasing *)error;
 
 @end
 

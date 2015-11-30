@@ -52,6 +52,8 @@
     
     _expectation = [self expectationWithDescription:@"Session is connected."];
     
+    NSDictionary *params = @{@"testKey1":@"testValue1",@"testKey2":@"testValue2",@"testKey3":@"testValue3"};
+    
     [self.assetsFetchResults enumerateObjectsUsingBlock:^(PHAsset *  _Nonnull asset, NSUInteger idx, BOOL * _Nonnull stop) {
         [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
             
@@ -59,7 +61,7 @@
             NSURL *url = [NSURL URLWithString:@"http://localhost:3000/media/upload"];
             NSError *error = nil;
             [[TMBackgroundTransfer sharedTransfer] setDelegate:self];
-            [[TMBackgroundTransfer sharedTransfer] uploadTaskWithURL:url data:imageData hash:hash error:&error];
+            [[TMBackgroundTransfer sharedTransfer] uploadTaskWithURL:url data:imageData hash:hash params:params error:&error];
             uploadCount ++ ;
         }];
     }];
@@ -88,6 +90,62 @@
     
 }
 
+- (void)testUploadCancel {
+    
+    XCTestExpectation *_cancelExpectation = [self expectationWithDescription:@"Session is connected."];
+    
+    NSDictionary *params = @{@"testKey1":@"testValue1",@"testKey2":@"testValue2",@"testKey3":@"testValue3"};
+    
+    __block NSMutableArray <NSURLSessionUploadTask *>*tasks = [NSMutableArray array];
+    
+    [self.assetsFetchResults enumerateObjectsUsingBlock:^(PHAsset *  _Nonnull asset, NSUInteger idx, BOOL * _Nonnull stop) {
+        [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            
+            NSString *hash = [imageData MD5HexDigest];
+            NSURL *url = [NSURL URLWithString:@"http://localhost:3000/media/upload"];
+            NSError *error = nil;
+            [[TMBackgroundTransfer sharedTransfer] setDelegate:self];
+            NSURLSessionUploadTask *uploadTask = [[TMBackgroundTransfer sharedTransfer] uploadTaskWithURL:url data:imageData hash:hash params:params error:&error];
+            [tasks addObject:uploadTask];
+            uploadCount ++ ;
+            
+            if (tasks.count == self.assetsFetchResults.count) {
+                [_cancelExpectation fulfill];
+            }
+            
+        }];
+    }];
+    
+    
+    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+        
+        
+        for (NSURLSessionUploadTask *task in tasks) {
+            [task cancel];
+        }
+
+        XCTAssertEqual(self.responses.count, 0);
+        
+        sleep(1);
+        
+        NSString *tmpDirectoryName = [[TMBackgroundTransfer sharedTransfer] backgroundTmpDirectoryName];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSArray *URLs = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *documentsDirectory = [URLs objectAtIndex:0];
+        NSURL *tmpDirectory = [documentsDirectory URLByAppendingPathComponent:tmpDirectoryName isDirectory:YES];
+        
+        NSArray *files = [fileManager contentsOfDirectoryAtURL:tmpDirectory includingPropertiesForKeys:@[] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
+       
+        XCTAssertEqual(files.count, 0);
+        XCTAssertEqual(completedCount, uploadCount);
+        if (error) {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+    
+}
+
 #pragma mark - delegate
 
 - (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer session:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
@@ -98,9 +156,11 @@
 - (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer session:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
     completedCount ++ ;
-    [self.responses addObject:(NSHTTPURLResponse *)task.response];
-    if (completedCount == uploadCount) {
-        [_expectation fulfill];
+    if (task.response) {
+        [self.responses addObject:(NSHTTPURLResponse *)task.response];
+        if (completedCount == uploadCount) {
+            [_expectation fulfill];
+        }
     }
 }
 
