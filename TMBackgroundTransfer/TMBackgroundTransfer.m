@@ -150,7 +150,7 @@ static NSString  *_sessionConfigurationIdentifier;
    
     __block NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@=%@", [url absoluteString], transferKey, hash] relativeToURL:url];
     if (params) {
-        [params enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
             NSString *param = [NSString stringWithFormat:@"%@=%@", key, obj];
             requestURL = [requestURL URLByAppendingQueryString:param];
         }];
@@ -161,7 +161,7 @@ static NSString  *_sessionConfigurationIdentifier;
     request.allowsCellularAccess = self.allowsCellularAccess;
     
     if (self.headers) {
-        [self.headers enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        [self.headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString * obj, BOOL *stop) {
             [request setValue:obj forHTTPHeaderField:key];
         }];
     }
