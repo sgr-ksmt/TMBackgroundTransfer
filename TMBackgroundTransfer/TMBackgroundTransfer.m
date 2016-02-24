@@ -203,35 +203,19 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
     if ([session.configuration.identifier isEqualToString:[self sessionConfigurationIdentifier]]) {
         if (error) {
-            if ([[error domain] isEqualToString:NSURLErrorDomain]) {
-                switch ([error code]) {
-                    case NSURLErrorCancelled: {
-                        
-                        NSDictionary *userInfo = error.userInfo;
-                        NSURL *url = [userInfo objectForKey:NSURLErrorFailingURLErrorKey];
-                        NSDictionary *dict = [url parseQuery];
-                        NSString *transferKey = [self transferIdentifierKey];
-                        NSString *hash = [dict objectForKey:transferKey];
-                        [self removeFileAtHash:hash];
-                        
-                    }
-                        break;
-                        
-                    default:
-                        break;
-                }
+            if ([[error domain] isEqualToString:NSURLErrorDomain] && [error code] == NSURLErrorCancelled) {
+                // error
+                NSDictionary *userInfo = error.userInfo;
+                NSURL *url = [userInfo objectForKey:NSURLErrorFailingURLErrorKey];
+                NSDictionary *dict = [url parseQuery];
+                NSString *transferKey = [self transferIdentifierKey];
+                NSString *hash = [dict objectForKey:transferKey];
+                [self removeFileAtHash:hash];
             }
-            
-            if (self.delegate) {
-                if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
-                    [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
-                }
-            }
-            return;
+        } else {
+            // complete
+            [self removeFileAtTask:task];
         }
-        
-        // complete
-        [self removeFileAtTask:task];
         if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
                 [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
