@@ -149,22 +149,18 @@ static NSString  *_sessionConfigurationIdentifier;
     NSString *transferKey = [self transferIdentifierKey];
    
     __block NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@=%@", [url absoluteString], transferKey, hash] relativeToURL:url];
-    if (params) {
-        [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
-            NSString *param = [NSString stringWithFormat:@"%@=%@", key, obj];
-            requestURL = [requestURL URLByAppendingQueryString:param];
-        }];
-    }
+    [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
+        NSString *param = [NSString stringWithFormat:@"%@=%@", key, obj];
+        requestURL = [requestURL URLByAppendingQueryString:param];
+    }];
  
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:requestURL];
     request.HTTPMethod = @"POST";
     request.allowsCellularAccess = self.allowsCellularAccess;
     
-    if (self.headers) {
-        [self.headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString * obj, BOOL *stop) {
-            [request setValue:obj forHTTPHeaderField:key];
-        }];
-    }
+    [self.headers enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString * obj, BOOL *stop) {
+        [request setValue:obj forHTTPHeaderField:key];
+    }];
     
     NSURLSessionUploadTask *task = [self.session uploadTaskWithRequest:request fromFile:saveURL];
     [task resume];
@@ -191,10 +187,8 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
     //float progress = (float)totalBytesSent / totalBytesExpectedToSend;
 
-    if (self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:)]) {
-            [self.delegate backgroundTransfer:self session:session task:task didSendBodyData:bytesSent totalBytesSent:totalBytesExpectedToSend totalBytesExpectedToSend:totalBytesExpectedToSend];
-        }
+    if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:)]) {
+        [self.delegate backgroundTransfer:self session:session task:task didSendBodyData:bytesSent totalBytesSent:totalBytesExpectedToSend totalBytesExpectedToSend:totalBytesExpectedToSend];
     }
     
 }
@@ -216,10 +210,8 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
             // complete
             [self removeFileAtTask:task];
         }
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
-                [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
-            }
+        if ([self.delegate respondsToSelector:@selector(backgroundTransfer:session:task:didCompleteWithError:)]) {
+            [self.delegate backgroundTransfer:self session:session task:task didCompleteWithError:error];
         }
     }
 }
