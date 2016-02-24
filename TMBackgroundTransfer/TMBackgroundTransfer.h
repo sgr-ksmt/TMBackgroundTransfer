@@ -66,6 +66,7 @@
 
 @protocol TMBackgroundTransferDelegate <NSObject>
 
+@optional
 - (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer
                    session:(NSURLSession *)session
                       task:(NSURLSessionTask *)task
@@ -73,6 +74,7 @@
             totalBytesSent:(int64_t)totalBytesSent
   totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
 
+@required
 - (void)backgroundTransfer:(TMBackgroundTransfer *)backgroundTransfer
                    session:(NSURLSession *)session
                       task:(NSURLSessionTask *)task
